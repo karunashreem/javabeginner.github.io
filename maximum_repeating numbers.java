@@ -1,5 +1,3 @@
-
-
 class Solution {
     int maxRepeating(int[] arr, int n, int k) {
         // code here
