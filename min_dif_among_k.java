@@ -1,23 +1,17 @@
 
-
 class Solution
 {
     long minDiff(long a[] ,int N,int K)
     {
-        sort(arr, arr+N);
-        vector<int> res;
+        Arrays.sort(a);
         
-        int p = 0;
-        while(K<=N)
-        {
-            res.push_back(arr[K-1]-arr[p]);
-            K++;
-            p++;
+        long result=Integer.MAX_VALUE;
+        int j=0;
+        for(int i=K-1; i<N; i++){
+            result=Math.min(result,a[i]-a[j]);
+            j++;
         }
-        
-        sort(res.begin(), res.end());
-        
-        return res[0];
+        return result;
         
     }
 }
