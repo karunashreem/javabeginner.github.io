@@ -1,11 +1,27 @@
-int m=1000000007;long ans=1;int x=0,y=1;
+
+class Solution
+{
+    public double[]  FindRoots(int A, int B, int C)
+    {
+        // code here
+        double r = (B*B) - (4*A*C);
         
-        for(int i=3;i<=n;i++){
-            ans=(ans*2+x+y)%m;
-            x%=m;
-            y%=m;
-            int t=x;
-            x=y;
-            y=y+t;
+        if(r < 0){
+            return new double[]{-1d};
         }
-        return (int)ans;
+        
+        double squareRoot = Math.sqrt(r);
+        double x1 = ((-1*B) + squareRoot)/(2*A);
+        double x2 = ((-1*B) - squareRoot)/(2*A);
+        
+        double[] root = new double[2];
+        if(x1 > x2){
+            root[0] = x2;
+            root[1] = x1;
+        } else{
+            root[1] = x2;
+            root[0] = x1;
+        }
+        return root;
+    }
+}
